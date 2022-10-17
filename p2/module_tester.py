@@ -146,6 +146,29 @@ def loans_test():
     assert bank[8].property_value == 215000
     assert len(bank[8].applicants) == 1
     loans_points += 1
+    
+    
+    #Student written tests
+    
+    bank = loans.Bank(9127854091823740)
+    assert bank.lei == ''
+    assert len(bank) == 0
+    loans_points += 1
+    
+    bank = loans.Bank("My made up bank")
+    assert bank.lei == ''
+    assert len(bank) == 0
+    loans_points += 1
+    
+    uwcu = loans.Bank("University of Wisconsin Credit Union")
+    assert uwcu.lei == '254900CN1DD55MJDFH69'
+    assert len(uwcu) == 21153
+    assert uwcu[-1].interest_rate == 2.99
+    assert uwcu[-1].property_value == 185000
+    assert len(uwcu[-1].applicants) == 2
+    loans_points += 2
+    
+      
 
 def search_test():
     global search_points
